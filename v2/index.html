@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Một buổi chiều đẹp cho bạn — lời mời</title>
+    <meta
+      name="description"
+      content="Một trải nghiệm lãng mạn tinh tế, nơi tớ chủ động chuẩn bị buổi hẹn và mời bạn chỉ cần gật đầu."
+    />
+    <!-- SEO: thay https://example.com bằng URL gốc thật sau khi deploy (og:image cần URL tuyệt đối). Kiểm tra URL ảnh trả 200; dùng Facebook Sharing Debugger hoặc tương đương để làm mới cache preview. -->
+    <link rel="canonical" href="https://example.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Một buổi chiều đẹp cho bạn — lời mời" />
+    <meta
+      property="og:description"
+      content="Một trải nghiệm lãng mạn tinh tế, nơi tớ chủ động chuẩn bị buổi hẹn và mời bạn chỉ cần gật đầu."
+    />
+    <meta property="og:url" content="https://example.com/" />
+    <meta
+      property="og:image"
+      content="https://example.com/images/7814A24E-2071-49F7-AE1C-D968C6E7BC2B_1_105_c.jpeg"
+    />
+    <meta
+      property="og:image:alt"
+      content="Hoa và lời mời — ảnh minh họa cho buổi chiều"
+    />
+    <meta property="og:locale" content="vi_VN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Một buổi chiều đẹp cho bạn — lời mời" />
+    <meta
+      name="twitter:description"
+      content="Một trải nghiệm lãng mạn tinh tế, nơi tớ chủ động chuẩn bị buổi hẹn và mời bạn chỉ cần gật đầu."
+    />
+    <meta
+      name="twitter:image"
+      content="https://example.com/images/7814A24E-2071-49F7-AE1C-D968C6E7BC2B_1_105_c.jpeg"
+    />
+    <meta name="theme-color" content="#fff0f6" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+    <script src="./animations.js" defer></script>
+  </head>
+  <body>
+    <div class="photo-stage" aria-hidden="true">
+      <img
+        class="photo-stage__img photo-stage__img--slot"
+        id="photo-0"
+        alt=""
+      />
+      <img
+        class="photo-stage__img photo-stage__img--slot"
+        id="photo-1"
+        alt=""
+      />
+    </div>
+
+    <button
+      class="home-btn"
+      id="home-btn"
+      type="button"
+      aria-label="Về trang chủ"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3 10.5L12 3l9 7.5"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M6.5 10.5V21h11V10.5"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <audio id="bg-audio" preload="auto" loop>
+      <source src="./assets/bg-melody.mp3" type="audio/mpeg" />
+    </audio>
+
+    <main class="app">
+      <header class="topbar">
+        <p class="topbar__tag">For you: Người xinh nhất thế gian</p>
+        <div class="progress">
+          <div class="progress__bar" id="progress-bar"></div>
+        </div>
+      </header>
+
+      <section class="scene is-active" data-scene="intro">
+        <div class="panel">
+          <p class="eyebrow">Này công chúa</p>
+          <h1>Có những cảm xúc không thể <strong>bày tỏ bằng tin nhắn</strong></h1>
+          <h3 class="copy"><em>Nếu không nhìn vào mắt nhau thì làm sao cảm nhận được.</em></h3>
+          <p class="copy">Nhắm mắt thì thấy nhớ<br/>Mở mắt lại phải chờ<br/>Có cả những giấc mơ<br/>Không biết đến bao giờ</p>
+          <button class="continue-next-btn" type="button" aria-label="Tiếp tục">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="scene" data-scene="care">
+        <div class="panel">
+          <p class="eyebrow">Có những nhiều hạnh phúc nhỏ nhặt biết bao</p>
+          <h2>Nếu như đi đón Trang lúc 2 giờ chiều, thì tớ đã bắt đầu hạnh phúc từ lúc 1
+            giờ rồi</h2>
+          <p class="copy">
+            Bạn có thể làm mọi thứ một mình, nhưng có tớ ở đây và tớ tin rằng nó sẽ tốt hơn.
+          </p>
+          <button class="continue-next-btn" type="button" aria-label="Tiếp tục">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          
+        </div>
+      </section>
+
+      <section class="scene" data-scene="plan">
+        <div class="panel">
+          <p class="eyebrow">Lịch trình</p>
+          <h2>Tớ đã sắp xếp sẵn một buổi chiều như thế này.</h2>
+          <!-- <p class="copy">
+            Nếu bạn thấy thoải mái, mình gặp nhau nhé. Mình đã chuẩn bị sẵn một
+            buổi chiều nhẹ nhàng để bạn chỉ cần đến và vui thôi.
+          </p> -->
+          <ol class="timeline">
+            <li>
+              <h3>14:00 - Đón công chúa</h3>
+              <!-- <p>
+                Không để bạn chờ. Tớ có mặt trước vài phút vì tớ biết đúng giờ
+                làm bạn thấy an tâm.
+              </p> -->
+            </li>
+            <li>
+              <h3>15:00 - Bảo tàng</h3>
+              <!-- <p>
+                Một chỗ có ánh đèn ấm, đủ riêng để tụi mình nói chuyện và nghe
+                nhau thật rõ.
+              </p> -->
+            </li>
+            <li>
+              <h3>17:00 - Cafe cùng lego </h3>
+              <!-- <p>
+                Nếu bạn muốn, tụi mình đi chậm một đoạn. Nếu bạn mệt, tụi mình
+                ngồi nghỉ và ngắm phố.
+              </p> -->
+            </li>
+            <li>
+              <h3>18:00 — Đi ăn nè</h3>
+              <!-- <p>
+                Kết thúc vừa đẹp, không muộn, để bạn về nhà với một tâm trạng dễ
+                chịu.
+              </p> -->
+            </li>
+            <li>
+              <h3>19:00 — Tớ đưa Trang về nhà</h3>
+              <p>
+                Có lẽ thứ làm ta hạnh phúc nhất nhưng cũng luyến tiếc nhất là khoảnh khắc cười thật nhiều trên đường về.
+              </p>
+            </li>
+          </ol>
+          <button class="continue-next-btn" type="button" aria-label="Tiếp tục">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          
+        </div>
+      </section>
+
+      <section class="scene" data-scene="heart">
+        <div class="panel">
+          <p class="eyebrow">Thực ra tớ biết rằng vẫn có nhiều sự vụng về</p>
+          <h2>Chỉ mong nàng có một buổi chiều ngọt ngào</h2>
+          <p class="copy type-target" id="heart-text">
+            Tớ thích bạn đủ nhiều để muốn làm mọi thứ chỉn chu: từ chỗ ngồi, món
+            ăn, quãng đường, cho tới lúc đưa bạn về. Không phải để phô trương,
+            mà để bạn thấy: công chúa của tớ xứng đáng với tất cả sự tử tế và
+            dịu dàng đó.
+          </p>
+          <button class="continue-next-btn" type="button" aria-label="Tiếp tục">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          
+        </div>
+      </section>
+
+      <section class="scene" data-scene="final">
+        <div class="panel">
+          <p class="eyebrow">Lời mời</p>
+          <h2>Nếu đồng ý,<br /> tớ xin được mời công chúa đi chơi.</h2>
+          <article class="result-card" id="result-card">
+            <p class="result-card__line">
+              Trang không cần chuẩn bị gì ngoài một chiếc "gật đầu".
+            </p>
+            <p class="result-card__hint">Bấm vào đây nhé</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="overlay" id="overlay-yes" aria-hidden="true">
+      <div class="overlay__bg" data-action="close-overlay"></div>
+      <div class="overlay__panel">
+        <h3>Cảm ơn bạn đã đồng ý.</h3>
+        <p>
+          Chiều đó mình sẽ đón bạn đúng giờ, chuẩn bị mọi thứ gọn gàng và để
+          đằng ấy vẫn là xinh đẹp nhất thế gian
+        </p>
+        <p>Nhắn tớ câu này nhé: <strong>“Dạ, mình đi nhé.”</strong></p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Lời mời nhỏ — 8/3</title>
+  <meta name="description" content="Ai đó gửi cho bạn một lời mời nhỏ nhân ngày 8/3." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Lời mời nhỏ — 8/3" />
+  <meta property="og:description" content="Ai đó gửi cho bạn một lời mời nhỏ nhân ngày 8/3." />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lời mời nhỏ — 8/3" />
+  <meta name="twitter:description" content="Ai đó gửi cho bạn một lời mời nhỏ nhân ngày 8/3." />
+  <meta name="twitter:image" content="/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    :root {
+      --cream: #faf7f2;
+      --warm-white: #fefcf9;
+      --blush: #e8c4c4;
+      --blush-deep: #d4a0a0;
+      --rose: #c47c7c;
+      --rose-gold: #b76e79;
+      --taupe: #8c7b75;
+      --taupe-light: #b5a8a1;
+      --charcoal: #3d3535;
+      --charcoal-soft: #5a4f4f;
+      --gold: #c9a96e;
+      --gold-soft: rgba(201,169,110,0.15);
+      --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+      --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    canvas#petals {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 520px;
+      animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .card {
+      position: relative;
+      background: var(--warm-white);
+      border: 1px solid rgba(200, 180, 160, 0.3);
+      border-radius: 24px;
+      padding: 48px 40px 40px;
+      box-shadow:
+        0 1px 2px rgba(60,40,30,0.04),
+        0 8px 24px rgba(60,40,30,0.06),
+        0 32px 64px rgba(60,40,30,0.04);
+      overflow: visible;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--blush), var(--rose-gold), var(--blush), transparent);
+      border-radius: 0 0 4px 4px;
+    }
+
+    .ornament {
+      text-align: center;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeIn 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ornament svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    .date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 100px;
+      background: var(--gold-soft);
+      border: 1px solid rgba(201, 169, 110, 0.25);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeIn 0.8s 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .date-badge .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .heading {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: clamp(28px, 5.6vw, 38px);
+      line-height: 1.25;
+      color: var(--charcoal);
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 0.8s 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .heading em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blush-deep), transparent);
+      margin: 0 0 20px;
+      opacity: 0;
+      animation: fadeIn 0.8s 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .body-text {
+      font-family: var(--font-sans);
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--charcoal-soft);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeIn 0.8s 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .detail-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeIn 0.8s 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 12px;
+      background: rgba(232, 196, 196, 0.12);
+      border: 1px solid rgba(200, 180, 160, 0.2);
+    }
+
+    .detail-item .label {
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--taupe-light);
+    }
+
+    .detail-item .value {
+      font-size: 13px;
+      color: var(--charcoal);
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 0.8s 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      min-height: 48px;
+      position: relative;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      border-radius: 14px;
+      padding: 13px 28px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-accept {
+      background: linear-gradient(135deg, var(--rose-gold), var(--rose));
+      color: #fff;
+      box-shadow:
+        0 2px 8px rgba(183, 110, 121, 0.25),
+        0 8px 24px rgba(183, 110, 121, 0.15);
+      letter-spacing: 0.02em;
+    }
+
+    .btn-accept:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 4px 12px rgba(183, 110, 121, 0.3),
+        0 12px 32px rgba(183, 110, 121, 0.2);
+    }
+
+    .btn-accept:active {
+      transform: translateY(0);
+    }
+
+    .btn-decline {
+      background: var(--warm-white);
+      color: var(--taupe-light);
+      border: 1px solid rgba(200, 180, 160, 0.35);
+      border-radius: 14px;
+      padding: 12px 24px;
+      font-size: 13px;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-decline.is-loose {
+      transition: left 0.55s cubic-bezier(0.22, 1.2, 0.36, 1),
+                  top 0.55s cubic-bezier(0.22, 1.2, 0.36, 1);
+    }
+
+    .footnote {
+      font-size: 12.5px;
+      color: var(--taupe-light);
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 0.8s 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .footnote .highlight {
+      color: var(--rose);
+      font-style: italic;
+      font-family: var(--font-serif);
+      font-size: 14px;
+    }
+
+    .success-view {
+      display: none;
+      text-align: center;
+      padding: 20px 0 0;
+    }
+
+    .success-view.is-visible {
+      display: block;
+      animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(232,196,196,0.3), rgba(201,169,110,0.15));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse-soft 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-soft {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(196, 124, 124, 0.15); }
+      50% { box-shadow: 0 0 0 16px rgba(196, 124, 124, 0); }
+    }
+
+    .success-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .success-title {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 4.5vw, 30px);
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .success-body {
+      font-size: 14px;
+      color: var(--charcoal-soft);
+      line-height: 1.7;
+      max-width: 360px;
+      margin: 0 auto 16px;
+    }
+
+    .success-footer {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--rose);
+    }
+
+    .btn-back {
+      margin-top: 20px;
+      background: transparent;
+      color: var(--taupe-light);
+      border: 1px solid rgba(200, 180, 160, 0.3);
+      font-size: 12.5px;
+      padding: 9px 20px;
+    }
+
+    .btn-back:hover {
+      border-color: rgba(200, 180, 160, 0.5);
+      color: var(--taupe);
+    }
+
+    .confetti-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    @media (max-width: 560px) {
+      body { padding: 14px; }
+      .card { padding: 36px 24px 32px; border-radius: 20px; }
+      .actions { gap: 10px; }
+      .btn { padding: 12px 22px; font-size: 13.5px; }
+      .btn-decline { padding: 11px 20px; font-size: 12.5px; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="petals"></canvas>
+
+  <div class="wrapper">
+    <div class="card" id="card">
+
+      <div id="invite-view">
+        <div class="ornament">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 8C20 8 14 14 14 20C14 26 20 32 20 32C20 32 26 26 26 20C26 14 20 8 20 8Z" stroke="#d4a0a0" stroke-width="1" fill="rgba(232,196,196,0.15)"/>
+            <path d="M8 20C8 20 14 14 20 14C26 14 32 20 32 20C32 20 26 26 20 26C14 26 8 20 8 20Z" stroke="#d4a0a0" stroke-width="1" fill="rgba(232,196,196,0.15)"/>
+            <circle cx="20" cy="20" r="3" fill="#c47c7c" opacity="0.5"/>
+          </svg>
+        </div>
+
+        <div class="date-badge">
+          <span>Ngày 8</span>
+          <span class="dot"></span>
+          <span>Tháng 3</span>
+        </div>
+
+        <h1 class="heading">Chủ nhật này<br/>đi chơi với thầy <em>không?</em></h1>
+
+        <div class="divider"></div>
+
+        <p class="body-text">
+          Nhân 8/3, thầy rủ trò iu đi ăn rồi đi dạo một buổi chiều. Cũng chưa có dịp nào mình được đi riêng với nhau cả. Đi đâu cũng được - Miễn là đi cùng nhau &#128149;&#128149;&#128149;.
+        </p>
+
+        <div class="detail-row">
+          <div class="detail-item">
+            <span class="label">Khi nào</span>
+            <span class="value">Chiều Chủ nhật, 08/03</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Ở đâu</span>
+            <span class="value">Thầy lo, trò iu cứ đẹp là được. Đưa đón tận nơi ạaaa!!!</span>
+          </div>
+        </div>
+
+        <div class="actions" id="actions">
+          <button type="button" class="btn btn-accept" id="btn-accept">
+            Đồng ý
+          </button>
+          <button type="button" class="btn btn-decline" id="btn-decline">
+            Thôi, em bận
+          </button>
+        </div>
+
+        <p class="footnote">
+          <span class="highlight">P.s.</span> — Nút kia hơi khó bấm, mà thôi trò iu cứ thử đi.
+        </p>
+      </div>
+
+      <div class="success-view" id="success-view">
+        <div class="success-icon">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 3C14 3 8 9 8 15C8 21 14 25 14 25C14 25 20 21 20 15C20 9 14 3 14 3Z" stroke="#c47c7c" stroke-width="1.2" fill="rgba(232,196,196,0.25)"/>
+            <circle cx="14" cy="14" r="4" fill="none" stroke="#c47c7c" stroke-width="1"/>
+            <circle cx="14" cy="14" r="1.5" fill="#c47c7c" opacity="0.6"/>
+          </svg>
+        </div>
+        <h2 class="success-title">Okê, hẹn trò iu Chủ nhật.</h2>
+        <p class="success-body">
+          Thực ra là tớ đã có dự định muốn mời Trang đi chơi nhân dịp 8/3. Cơ mà vụng về quá không biết chuẩn bị lời mời sao cho chu đáo. Lại còn để Trang phải gợi ý nữa, không biết khôn ngoan để đâu hết rồi :))) <br/> Trang để tớ mời nha. Hì ^^&#128149;&#128157;&#128149;
+        </p>
+        <p class="success-footer">Đợi trò iu.</p>
+        <button type="button" class="btn btn-back" id="btn-back">Xem lại thiệp</button>
+      </div>
+
+    </div>
+  </div>
+
+  <canvas class="confetti-canvas" id="confetti-canvas"></canvas>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ─── Falling petals (background) ─── */
+    const petalCanvas = document.getElementById('petals');
+    const pCtx = petalCanvas.getContext('2d');
+    let petals = [];
+    let cW, cH;
+
+    const resizePetalCanvas = () => {
+      cW = petalCanvas.width = window.innerWidth;
+      cH = petalCanvas.height = window.innerHeight;
+    };
+
+    const createPetal = (seed) => ({
+      x: seed ? Math.random() * cW : Math.random() * cW,
+      y: seed ? Math.random() * cH : -10 - Math.random() * 40,
+      size: 4 + Math.random() * 5,
+      speedY: 0.15 + Math.random() * 0.35,
+      speedX: (Math.random() - 0.5) * 0.3,
+      rotation: Math.random() * Math.PI * 2,
+      rotationSpeed: (Math.random() - 0.5) * 0.015,
+      opacity: 0.15 + Math.random() * 0.25,
+      hue: Math.random() > 0.5 ? 0 : 30,
+    });
+
+    const initPetals = () => {
+      petals = [];
+      const count = Math.min(Math.floor(cW * cH / 28000), 35);
+      for (let i = 0; i < count; i++) petals.push(createPetal(true));
+    };
+
+    const drawPetal = (p) => {
+      pCtx.save();
+      pCtx.translate(p.x, p.y);
+      pCtx.rotate(p.rotation);
+      pCtx.globalAlpha = p.opacity;
+      pCtx.beginPath();
+      pCtx.ellipse(0, 0, p.size * 0.45, p.size, 0, 0, Math.PI * 2);
+      pCtx.fillStyle = `hsl(${p.hue}, 45%, 78%)`;
+      pCtx.fill();
+      pCtx.restore();
+    };
+
+    const animatePetals = () => {
+      pCtx.clearRect(0, 0, cW, cH);
+      for (let i = petals.length - 1; i >= 0; i--) {
+        const p = petals[i];
+        p.y += p.speedY;
+        p.x += p.speedX + Math.sin(p.y * 0.008) * 0.2;
+        p.rotation += p.rotationSpeed;
+        if (p.y > cH + 20) {
+          petals[i] = createPetal(false);
+          petals[i].x = Math.random() * cW;
+        }
+        drawPetal(p);
+      }
+      requestAnimationFrame(animatePetals);
+    };
+
+    resizePetalCanvas();
+    initPetals();
+    animatePetals();
+    window.addEventListener('resize', () => { resizePetalCanvas(); initPetals(); });
+
+    /* ─── Decline button logic ─── */
+    const card = document.getElementById('card');
+    const actionsEl = document.getElementById('actions');
+    const declineBtn = document.getElementById('btn-decline');
+    const acceptBtn = document.getElementById('btn-accept');
+    const inviteView = document.getElementById('invite-view');
+    const successView = document.getElementById('success-view');
+
+    if (!card || !declineBtn || !acceptBtn) return;
+
+    const phrases = [
+      'Ơ, bấm nhầm à?',
+      'Nghĩ lại đi.',
+      'Hmm... chắc chưa?',
+      'Nút này hôm nay nghỉ.',
+      'Thử lại đi, tớ đợi.',
+      'Thôi mà.',
+    ];
+    let phraseIdx = 0;
+
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    let hasEscaped = false;
+
+    const escapeDecline = () => {
+      const pad = 20;
+
+      if (!hasEscaped) {
+        const rect = declineBtn.getBoundingClientRect();
+        const btnW = rect.width;
+        const btnH = rect.height;
+
+        document.body.appendChild(declineBtn);
+
+        declineBtn.style.position = 'fixed';
+        declineBtn.style.zIndex = '100';
+        declineBtn.style.left = rect.left + 'px';
+        declineBtn.style.top = rect.top + 'px';
+        declineBtn.style.margin = '0';
+        declineBtn.style.opacity = '1';
+
+        hasEscaped = true;
+
+        requestAnimationFrame(() => {
+          declineBtn.classList.add('is-loose');
+          requestAnimationFrame(() => {
+            moveToRandom(btnW, btnH, pad);
+          });
+        });
+        return;
+      }
+
+      moveToRandom(declineBtn.offsetWidth, declineBtn.offsetHeight, pad);
+    };
+
+    const moveToRandom = (btnW, btnH, pad) => {
+      const maxX = window.innerWidth - btnW - pad;
+      const maxY = window.innerHeight - btnH - pad;
+      const rx = pad + Math.random() * (maxX - pad);
+      const ry = pad + Math.random() * (maxY - pad);
+
+      declineBtn.style.left = rx + 'px';
+      declineBtn.style.top = ry + 'px';
+
+      declineBtn.textContent = phrases[phraseIdx % phrases.length];
+      phraseIdx++;
+    };
+
+    const onDeclineAttempt = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      escapeDecline();
+    };
+
+    declineBtn.addEventListener('mouseenter', () => { if (!isTouch) escapeDecline(); });
+    declineBtn.addEventListener('touchstart', (e) => { if (isTouch) onDeclineAttempt(e); }, { passive: false });
+    declineBtn.addEventListener('click', onDeclineAttempt);
+
+    /* ─── Accept logic ─── */
+    const hideDecline = () => {
+      if (hasEscaped && declineBtn.parentNode === document.body) {
+        declineBtn.style.display = 'none';
+      } else {
+        declineBtn.style.display = 'none';
+      }
+    };
+
+    const showSuccess = (withConfetti) => {
+      inviteView.style.display = 'none';
+      hideDecline();
+      successView.style.display = 'block';
+      successView.classList.add('is-visible');
+      if (withConfetti) fireConfetti();
+    };
+
+    const isAccepted = localStorage.getItem('thiep83_accepted') === 'yes';
+    if (isAccepted) {
+      inviteView.style.display = 'none';
+      declineBtn.style.display = 'none';
+      successView.style.display = 'block';
+    }
+
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('thiep83_accepted', 'yes');
+      showSuccess(true);
+    });
+
+    const backBtn = document.getElementById('btn-back');
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        localStorage.removeItem('thiep83_accepted');
+        successView.classList.remove('is-visible');
+        successView.style.display = 'none';
+        inviteView.style.display = '';
+        declineBtn.style.display = '';
+      });
+    }
+
+    /* ─── Confetti (canvas-based, elegant) ─── */
+    const confettiCanvas = document.getElementById('confetti-canvas');
+    const ctx = confettiCanvas.getContext('2d');
+
+    const resizeConfetti = () => {
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+    };
+    resizeConfetti();
+    window.addEventListener('resize', resizeConfetti);
+
+    let confettiPieces = [];
+    let confettiRunning = false;
+
+    const confettiColors = [
+      '#d4a0a0', '#c47c7c', '#e8c4c4', '#c9a96e',
+      '#b5a8a1', '#e0d5c8', '#b76e79', '#dbc1ac',
+    ];
+
+    const fireConfetti = () => {
+      confettiPieces = [];
+      const count = 90;
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight * 0.42;
+
+      for (let i = 0; i < count; i++) {
+        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.6;
+        const velocity = 4 + Math.random() * 7;
+        confettiPieces.push({
+          x: cx,
+          y: cy,
+          vx: Math.cos(angle) * velocity * (0.6 + Math.random() * 0.8),
+          vy: Math.sin(angle) * velocity * (0.6 + Math.random() * 0.8) - 3,
+          w: 4 + Math.random() * 4,
+          h: 6 + Math.random() * 8,
+          color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+          rotation: Math.random() * Math.PI * 2,
+          rotSpeed: (Math.random() - 0.5) * 0.15,
+          gravity: 0.12 + Math.random() * 0.06,
+          opacity: 1,
+          decay: 0.008 + Math.random() * 0.006,
+        });
+      }
+
+      if (!confettiRunning) {
+        confettiRunning = true;
+        animateConfetti();
+      }
+    };
+
+    const animateConfetti = () => {
+      ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      let alive = 0;
+
+      for (const c of confettiPieces) {
+        if (c.opacity <= 0) continue;
+        alive++;
+        c.x += c.vx;
+        c.y += c.vy;
+        c.vy += c.gravity;
+        c.vx *= 0.99;
+        c.rotation += c.rotSpeed;
+        c.opacity -= c.decay;
+
+        ctx.save();
+        ctx.translate(c.x, c.y);
+        ctx.rotate(c.rotation);
+        ctx.globalAlpha = Math.max(0, c.opacity);
+        ctx.fillStyle = c.color;
+        ctx.beginPath();
+        ctx.roundRect(-c.w / 2, -c.h / 2, c.w, c.h, 1.5);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      if (alive > 0) {
+        requestAnimationFrame(animateConfetti);
+      } else {
+        confettiRunning = false;
+        ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      }
+    };
+
+  })();
+  </script>
+</body>
+</html>
