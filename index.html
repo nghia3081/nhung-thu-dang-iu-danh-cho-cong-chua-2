@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Hành trình ngọt ngào</title>
+    <meta
+      name="description"
+      content="Hành trình ngọt ngào của tớ và bạn."
+    />
+    <link rel="canonical" href="https://nghia3081.github.io/nhung-thu-dang-iu-danh-cho-cong-chua/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hành trình ngọt ngào" />
+    <meta property="og:description" content="Hành trình ngọt ngào của tớ và bạn." />
+    <meta property="og:url" content="https://nghia3081.github.io/nhung-thu-dang-iu-danh-cho-cong-chua/" />
+    <meta
+      property="og:image"
+      content="/22-3/images/EEBE23CC-8FFF-46AE-86E2-21C0C2AC0799_4_5005_c.jpeg"
+    />
+    <meta property="og:image:alt" content="Khoảnh khắc kỉ niệm ngọt ngào" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hành trình ngọt ngào" />
+    <meta name="twitter:description" content="Hành trình ngọt ngào của tớ và bạn." />
+    <meta
+      name="twitter:image"
+      content="/22-3/images/EEBE23CC-8FFF-46AE-86E2-21C0C2AC0799_4_5005_c.jpeg"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #f7f2eb;
+        --paper: #fffdf9;
+        --text: #453b3b;
+        --text-soft: #776a6a;
+        --line: #d9c3c3;
+        --accent: #b98585;
+        --accent-soft: #f2e3e3;
+        --ring: rgba(185, 133, 133, 0.22);
+        --shadow: 0 10px 30px rgba(49, 29, 29, 0.08);
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      body {
+        font-family: "Times New Roman", Georgia, serif;
+        color: var(--text);
+        background:
+          radial-gradient(1100px 500px at 10% -10%, #ffffff 0, transparent 65%),
+          radial-gradient(1000px 450px at 100% 0%, #f8ecec 0, transparent 50%),
+          var(--bg);
+        line-height: 1.5;
+      }
+
+      .container {
+        width: min(1024px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 36px 0 56px;
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 34px;
+      }
+
+      .hero__title {
+        margin: 0;
+        font-size: clamp(32px, 6vw, 54px);
+        font-weight: 500;
+        letter-spacing: 0.01em;
+      }
+
+      .hero__subtitle {
+        margin: 10px auto 0;
+        max-width: 680px;
+        color: var(--text-soft);
+        font-size: clamp(15px, 2.2vw, 18px);
+      }
+
+      .timeline {
+        position: relative;
+        display: grid;
+        gap: 26px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 18px;
+        top: 4px;
+        bottom: 4px;
+        width: 2px;
+        background: linear-gradient(to bottom, transparent, var(--line) 10%, var(--line) 90%, transparent);
+      }
+
+      .timeline-node {
+        position: relative;
+        display: grid;
+        grid-template-columns: 22px 1fr;
+        gap: 16px;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .timeline-node__dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 999px;
+        background: var(--paper);
+        border: 2px solid var(--accent);
+        margin-top: 22px;
+        box-shadow: 0 0 0 4px var(--ring);
+      }
+
+      .timeline-node__card {
+        background: var(--paper);
+        border: 1px solid #ecdede;
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        transform: translateY(0);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+
+      .timeline-node:hover .timeline-node__card,
+      .timeline-node:focus-visible .timeline-node__card {
+        transform: translateY(-3px);
+        border-color: #dfbbbb;
+        box-shadow: 0 14px 34px rgba(49, 29, 29, 0.12);
+      }
+
+      .timeline-node:focus-visible {
+        outline: none;
+      }
+
+      .timeline-node__cover {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        display: block;
+      }
+
+      .timeline-node__body {
+        padding: 16px 16px 14px;
+      }
+
+      .timeline-node__meta {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        font-size: 13px;
+        color: #6f5656;
+        background: var(--accent-soft);
+        border: 1px solid #e9d4d4;
+      }
+
+      .timeline-node__title {
+        margin: 12px 0 8px;
+        font-size: clamp(24px, 4vw, 30px);
+        line-height: 1.2;
+        font-weight: 500;
+      }
+
+      .timeline-node__desc {
+        margin: 0;
+        color: var(--text-soft);
+        font-size: 15px;
+      }
+
+      .hint {
+        margin-top: 24px;
+        text-align: center;
+        color: var(--text-soft);
+        font-size: 14px;
+      }
+
+      @media (max-width: 700px) {
+        .container {
+          width: min(1024px, calc(100% - 20px));
+          padding-top: 22px;
+        }
+
+        .timeline {
+          gap: 18px;
+        }
+
+        .timeline::before {
+          left: 16px;
+        }
+
+        .timeline-node {
+          grid-template-columns: 20px 1fr;
+          gap: 12px;
+        }
+
+        .timeline-node__dot {
+          margin-top: 18px;
+          width: 12px;
+          height: 12px;
+        }
+
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1 class="hero__title">Một hành trình ngọt ngào</h1>
+        <p class="hero__subtitle">
+          Lưu giữ những khoảnh khắc đáng yêu nhất ở đây. Để mọi thứ không bao giờ phai nhoà.
+        </p>
+      </header>
+
+      <section class="timeline" aria-label="Dòng thời gian kỉ niệm">
+        <a class="timeline-node" href="/8-3" aria-label="Mở trang 8 tháng 3">
+          <span class="timeline-node__dot" aria-hidden="true"></span>
+          <article class="timeline-node__card">
+            <img
+              class="timeline-node__cover"
+              src="/8-3/og-image.png"
+              alt="Ảnh kỉ niệm ngày 8 tháng 3"
+              loading="lazy"
+            />
+            <div class="timeline-node__body">
+              <span class="timeline-node__meta">Mốc 01 • 8/3</span>
+              <h2 class="timeline-node__title">Lời mời nhỏ 8/3</h2>
+              <p class="timeline-node__desc">
+                Click để mở thiệp ngày 8/3 tại đường dẫn <code>/8-3</code>.
+              </p>
+
+              <!--
+              Ảnh đính kèm mốc 8/3 (bỏ comment khi cần):
+              <div class="timeline-node__attachments" aria-label="Ảnh đính kèm cho mốc 8 tháng 3">
+                <div class="attachment">
+                  <img src="/8-3/images/ten-anh-1.jpg" alt="Ảnh đính kèm 8/3 - 1" loading="lazy" />
+                </div>
+                <div class="attachment">
+                  <img src="/8-3/images/ten-anh-2.jpg" alt="Ảnh đính kèm 8/3 - 2" loading="lazy" />
+                </div>
+                <div class="attachment">
+                  <img src="/8-3/images/ten-anh-3.jpg" alt="Ảnh đính kèm 8/3 - 3" loading="lazy" />
+                </div>
+              </div>
+              -->
+            </div>
+          </article>
+        </a>
+
+        <a class="timeline-node" href="/22-3" aria-label="Mở trang 22 tháng 3">
+          <span class="timeline-node__dot" aria-hidden="true"></span>
+          <article class="timeline-node__card">
+            <img
+              class="timeline-node__cover"
+              src="/22-3/images/7814A24E-2071-49F7-AE1C-D968C6E7BC2B_1_105_c.jpeg"
+              alt="Ảnh kỉ niệm ngày 22 tháng 3"
+              loading="lazy"
+            />
+            <div class="timeline-node__body">
+              <span class="timeline-node__meta">Mốc 02 • 22/3</span>
+              <h2 class="timeline-node__title">Buổi chiều 22/3</h2>
+              <p class="timeline-node__desc">
+                Click để mở trang ngày 22/3 tại đường dẫn <code>/22-3</code>.
+              </p>
+
+              <!--
+              Ảnh đính kèm mốc 22/3 (bỏ comment khi cần):
+              <div class="timeline-node__attachments" aria-label="Ảnh đính kèm cho mốc 22 tháng 3">
+                <div class="attachment">
+                  <img src="/22-3/images/ten-anh-1.jpg" alt="Ảnh đính kèm 22/3 - 1" loading="lazy" />
+                </div>
+                <div class="attachment">
+                  <img src="/22-3/images/ten-anh-2.jpg" alt="Ảnh đính kèm 22/3 - 2" loading="lazy" />
+                </div>
+                <div class="attachment">
+                  <img src="/22-3/images/ten-anh-3.jpg" alt="Ảnh đính kèm 22/3 - 3" loading="lazy" />
+                </div>
+              </div>
+              -->
+            </div>
+          </article>
+        </a>
+      </section>
+
+    </main>
+  </body>
+</html>
